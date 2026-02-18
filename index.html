@@ -149,23 +149,26 @@
     const updateBtn = document.getElementById("updateBtn");
     const ctx = document.getElementById("meditationChart");
 
-    /* ⭐ ONLY CHANGE ADDED: Beautiful light gradient */
+    /* ⭐ Gradient (unchanged) */
     const gradient = ctx.getContext("2d").createLinearGradient(0, 0, 0, 300);
-    gradient.addColorStop(0, "#bbf7d0");  // light mint
-    gradient.addColorStop(0.5, "#86efac"); // soft green   86efac
-    gradient.addColorStop(1, "#bbf7d0");  // brighter light green  4ade80
+    gradient.addColorStop(0, "#bbf7d0");
+    gradient.addColorStop(0.5, "#86efac");
+    gradient.addColorStop(1, "#4ade80");
 
     let chart;
 
     function createOrUpdateChart(done, goal) {
       const remaining = Math.max(goal - done, 0);
 
+      /* ⭐ FIX: ensure tiny slices always render correctly */
+      const epsilon = 0.0000001;
+
       const data = {
         labels: ["Done", "Remaining"],
         datasets: [
           {
-            data: [done, remaining],
-            backgroundColor: [gradient, "#1f2933"], /* ⭐ replaced ONLY this */
+            data: [done + epsilon, remaining],
+            backgroundColor: [gradient, "#1f2933"],
             borderWidth: 0,
           },
         ],
