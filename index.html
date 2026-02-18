@@ -149,6 +149,12 @@
     const updateBtn = document.getElementById("updateBtn");
     const ctx = document.getElementById("meditationChart");
 
+    /* ⭐ ONLY CHANGE ADDED: Beautiful light gradient */
+    const gradient = ctx.getContext("2d").createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, "#bbf7d0");  // light mint
+    gradient.addColorStop(0.5, "#86efac"); // soft green   86efac
+    gradient.addColorStop(1, "#bbf7d0");  // brighter light green  4ade80
+
     let chart;
 
     function createOrUpdateChart(done, goal) {
@@ -159,7 +165,7 @@
         datasets: [
           {
             data: [done, remaining],
-            backgroundColor: ["#22c55e", "#1f2933"],
+            backgroundColor: [gradient, "#1f2933"], /* ⭐ replaced ONLY this */
             borderWidth: 0,
           },
         ],
