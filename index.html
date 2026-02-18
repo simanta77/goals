@@ -38,7 +38,9 @@
     }
 
     .top-section {
-      padding: 0px;
+      padding: 6px;
+      padding-left: 16px;
+      padding-right: 16px;
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
@@ -95,14 +97,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 16px;
+      padding: 6px;
       padding-bottom: calc(70px + env(safe-area-inset-bottom)); /* ⭐ extra bottom space */
       min-height: 0; /* critical for iPhone flexbox */
     }
 
     .canvas-wrapper {
       width: 100%;
-      max-width: 590px;
+      max-width: 600px;
       aspect-ratio: 1 / 1; /* perfect circle */
       position: relative;
     }
@@ -187,7 +189,7 @@
     }
 
     updateBtn.addEventListener("click", update);
-    goalHoursInput.value = 10000;
+    goalHoursInput.value = 1000;
   </script>
 </body>
 </html>
